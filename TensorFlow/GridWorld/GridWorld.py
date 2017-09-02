@@ -27,7 +27,7 @@ class gameEnv():
         self.objects = []
         a = self.reset()
         #plt.imshow(a, interpolation="nearest")
-
+    #reset all objects
     def reset(self):
         self.objects = []
         hero = gameOb(self.newPosition(),1,1,2,None,'hero')
@@ -47,7 +47,7 @@ class gameEnv():
         state = self.renderEnv()
         self.state = state
         return state
-
+    # define the Motion Rules of Hero
     def moveChar(self,direction):
         hero = self.objects[0]
         heroX = hero.x
@@ -61,7 +61,7 @@ class gameEnv():
         if direction == 3 and hero.x <= self.sizeX-2:
             hero.x += 1
         self.objects[0] = hero
-
+    # caculate the feasible Position for generating a New object
     def newPosition(self):
         iterables = [range(self.sizeX), range(self.sizeY)]
         points = []
@@ -75,7 +75,7 @@ class gameEnv():
             points.remove(pos)
         location = np.random.choice(range(len(points)), replace=False)
         return points[location]
-
+    # check if Hero touched the fire or goal
     def checkGoal(self):
         others = []
         for obj in self.objects:
@@ -105,13 +105,13 @@ class gameEnv():
         d = scipy.misc.imresize(a[:,:,2],[84,84,1],interp = 'nearest')
         a = np.stack([b,c,d], axis = 2)
         return a
-
+    #computation of a single step
     def step(self, action):
         self.moveChar(action)
         reward, done = self.checkGoal()
         state = self.renderEnv()
         return state, reward, done
-
+# the size of the game map
 env = gameEnv(size=5)
 
 class Qnetwork():
