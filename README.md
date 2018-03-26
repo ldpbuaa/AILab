@@ -1,20 +1,22 @@
 # AILab
-An AILab of tutorials for TensorFlow
+An AILab of tutorials for TensorFlow  　
 ## Tensorflow tutorials
-Basic NN Model:
-MultiLayerPerceptron
-AutoEncoder
-CNN
-AdvCNN
-
-Reinforcement Learning Model:
-CartPole
-GridModel
+Basic NN Model:  
+MultiLayerPerceptron  
+AutoEncoder  
+CNN  
+AdvCNN  
+SVM  
 
 
-TensorFlow Visualization:
-TensorBoard
+Reinforcement Learning Model:  
+CartPole  
+GridModel  
 
 
-Advanced CNN Model：
-AlexNet
+TensorFlow Visualization:  
+TensorBoard  
+
+
+Advanced CNN Model:  
+AlexNet  
